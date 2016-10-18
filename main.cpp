@@ -40,12 +40,23 @@ double Account::getBalance()() {
     balance = balance + c;
 }
 
+
 class SavingsAccount: public Account
 {
 public:
-
+    void setSavingsAccount(double balance, double interestrate);
+    double calculateInterest(double balance, double interestrate);
 private:
+    double interestrate;
 };
+void SavingsAccount::setSavingsAccount(double balance, double interestrate) {
+    balance = balance;
+    interestrate = interestrate;
+}
+double calculateInterest(double balance, double interestrate){
+    return (balance*interestrate);
+}
+
 
 class CheckingAccount: public Account
 {
@@ -58,6 +69,11 @@ private:
 
 int main(int argc, char *argv[])
 {
+    
+    SavingsAccount aSavingsAccount;
+    aSavingsAccount.setSavingsAccount(10, 0.2);
+    aSavingsAccount.calculateInterest(10, 0.2);
+    cout << "Interest amount is" << aSavingsAccount.calculateInterest(10, 0.2);
 
     return 0;
 }
