@@ -29,19 +29,23 @@ bool Account::debit(double d) {
         return false;
     }
 }
-double Account::getBalance()() {
+double Account::getBalance() {
     return balance;
 }
 
 
-CheckingAccount::CheckingAccount(double initialBalance, double feeAmmount){
+CheckingAccount::CheckingAccount(double b, double initialBalance, double feeAmmount) : Account(b) {
     balance=initialBalance;
     fee=feeAmmount;
 }
 void CheckingAccount::credit(double c){
-    balance=balance + c - fee;
+    Account::credit(c);
+    balance=balance - fee;
 }
+
 void CheckingAccount::debit(double d){
-    balance=balance - (d+fee);
+    if(Account::debit(d)){
+        balance=balance - fee;
+    }
 }
 

@@ -25,21 +25,15 @@ protected:
 
 
 
-
 class SavingsAccount: public Account
 {
 public:
-
+    void setSavingsAccount(double balance, double interestrate);
+    double calculateInterest(double balance, double interestrate);
 private:
+    double interestrate;
 };
 
-class CheckingAccount: public Account
-{
-public:
-
-private:
-
-};
 
 
 int main(int argc, char *argv[])
@@ -51,7 +45,7 @@ int main(int argc, char *argv[])
 class CheckingAccount: public Account
 {
 public:
-    CheckingAccount(double initialBalance, double feeAmmount);
+    CheckingAccount(double b, double initialBalance, double feeAmmount);
     void credit(double c);
     void debit(double d);
 
