@@ -2,8 +2,8 @@
 // Created by Sean Pitterson on 10/18/16.
 //
 
-#ifndef ACCOUNT_H
-#define ACCOUNT_H
+#ifndef ASSIGNMENT_2_ACCOUNT_H
+#define ASSIGNMENT_2_ACCOUNT_H
 
 #include <iostream>
 #include <string>
@@ -29,13 +29,12 @@ class SavingsAccount: public Account
 {
     double interestrate;
 public:
-    SavingsAccount(double initialBalance, double c):Account(initialBalance), interestrate(c){} ;
+    SavingsAccount(double initialBalance, double c);
     //void setSavingsAccount(double balance, double i);
-    double calculateInterest(double balance, double a);
+    double calculateInterest();
 private:
     double h;
 };
-
 
 
 
@@ -50,8 +49,5 @@ private:
     double fee;
 };
 
+
 #endif //ASSIGNMENT_2_ACCOUNT_H
-
-
-
-
