@@ -14,11 +14,11 @@ using namespace std;
 class Account
 {
 public:
+
     Account(double b);
-    void setBalance(double balance);
     double getBalance();
     void credit(double c);
-    void debit(double d);
+    bool debit(double d);
 protected:
     double balance;
 };
@@ -47,5 +47,17 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+
+class CheckingAccount: public Account
+{
+public:
+    CheckingAccount(double initialBalance, double feeAmmount);
+    void credit(double c);
+    void debit(double d);
+
+private:
+double fee;
+};
+
 
 #endif //ASSIGNMENT_2_ACCOUNT_H

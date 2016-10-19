@@ -19,14 +19,29 @@ Account::Account(double b){
 void Account::credit(double c) {
     balance = balance + c;
 }
-void Account::debit(double d) {
+bool Account::debit(double d) {
     if (balance >= d) {
         balance = balance - d;
+        return true;
     } else
     {
         cout<<"Debit amount exceeded account balance.";
+        return false;
     }
 }
 double Account::getBalance()() {
     return balance;
 }
+
+
+CheckingAccount::CheckingAccount(double initialBalance, double feeAmmount){
+    balance=initialBalance;
+    fee=feeAmmount;
+}
+void CheckingAccount::credit(double c){
+    balance=balance + c - fee;
+}
+void CheckingAccount::debit(double d){
+    balance=balance - (d+fee);
+}
+
